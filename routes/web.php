@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('/tasks/{id}', [TasksController::class, 'show'])->name('tasks-edit');
 Route::patch('/tasks/{id}', [TasksController::class, 'update'])->name('tasks-update');
 
 Route::delete('/tasks/{id}', [TasksController::class, 'destroy'])->name('tasks-destroy');
+
+Route::resource('categories', CategoriesController::class);
