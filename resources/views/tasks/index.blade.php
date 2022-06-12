@@ -16,4 +16,24 @@
         <input type="text" name="title">
         <button type="submit">Crear nueva tarea</button>
     </form>
+    
+    <div>
+        @foreach ($tasks as $task)
+            <div>
+                <div>
+                    <a href="{{ route('tasks-update', ['id' => $task->id]) }}">
+                        {{ $task->title }}
+                    </a>
+                </div>
+                
+                <div>
+                    <form action="{{ route('tasks-destroy', [$task->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button>Delete</button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
+    </div>
 @endsection

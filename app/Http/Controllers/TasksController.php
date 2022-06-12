@@ -17,4 +17,14 @@ class TasksController extends Controller
         
         return redirect()->route('tasks')->with('success', 'task added successfully');
     }
+    
+    public function index() {
+        $tasks = Task::all();
+        return view('tasks.index', ['tasks' => $tasks]);
+    }
+    
+    public function show($id) {
+        $task = Task::find($id);
+        return view('tasks.show', ['task' => $task]);
+    }
 }
