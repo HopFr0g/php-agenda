@@ -21,7 +21,7 @@
         @foreach ($tasks as $task)
             <div>
                 <div>
-                    <a href="{{ route('tasks-update', ['id' => $task->id]) }}">
+                    <a href="{{ route('tasks-edit', ['id' => $task->id]) }}">
                         {{ $task->title }}
                     </a>
                 </div>

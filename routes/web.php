@@ -22,7 +22,7 @@ Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');
 
 Route::post('/tasks'/* esta ruta se puede cambiar a futuro */, [TasksController::class, 'store'])->name('tasks');
 
-Route::get('/tasks/{id}', [TasksController::class, 'show'])->name('tasks-show');
-Route::patch('/tasks', [TasksController::class, 'store'])->name('tasks-update');
+Route::get('/tasks/{id}', [TasksController::class, 'show'])->name('tasks-edit');
+Route::patch('/tasks/{id}', [TasksController::class, 'update'])->name('tasks-update');
 
-Route::delete('/tasks', [TasksController::class, 'store'])->name('tasks-destroy');
+Route::delete('/tasks/{id}', [TasksController::class, 'destroy'])->name('tasks-destroy');
