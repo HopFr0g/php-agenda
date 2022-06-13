@@ -56,9 +56,13 @@ class CategoriesController extends Controller
 
     public function destroy($id)
     {
+        // nota: este es un ejemplo de cómo eliminar una entrada de una tabla, de la que dependen otras entradas de otra tabla (clave foránea)
         $category = Category::find($id);
+        $category->tasks()->each(function($task) {
+            $task->delete();
+        });
         $category->delete();
         
-        return redirect()->route('categories.index')->with('success', 'Categoria eliminada');
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully');   
     }
 }
