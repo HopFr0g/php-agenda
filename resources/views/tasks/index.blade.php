@@ -14,6 +14,9 @@
             <h6>{{ $message }}</h6>
         @enderror
         <input type="text" name="title">
+        <select name="category_id">
+            <option value="3">Trabajo</option>
+        </select>
         <button type="submit">Crear nueva tarea</button>
     </form>
     

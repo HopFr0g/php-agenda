@@ -13,6 +13,7 @@ class TasksController extends Controller
         ]);
         $task = new Task;
         $task->title = $request->title;
+        $task->category_id = $request->category_id;
         $task->save();
         
         return redirect()->route('tasks')->with('success', 'task added successfully');
