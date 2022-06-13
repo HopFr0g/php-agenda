@@ -13,11 +13,17 @@
         @error('title')
             <h6>{{ $message }}</h6>
         @enderror
-        <input type="text" name="title">
-        <select name="category_id">
-            <option value="3">Trabajo</option>
-        </select>
-        <button type="submit">Crear nueva tarea</button>
+        @if ($categories->count() > 0)
+            <input type="text" name="title">
+            <select name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <button type="submit">Crear nueva tarea</button>
+        @else
+            Para crear una nueva tarea, primero debes crear una categoría <a href="categories">aquí</a>
+        @endif
     </form>
     
     <div>

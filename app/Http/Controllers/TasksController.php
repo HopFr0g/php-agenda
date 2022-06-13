@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Category;
 
 class TasksController extends Controller
 {
@@ -21,7 +22,8 @@ class TasksController extends Controller
     
     public function index() {
         $tasks = Task::all();
-        return view('tasks.index', ['tasks' => $tasks]);
+        $categories = Category::all();
+        return view('tasks.index', ['tasks' => $tasks, 'categories' => $categories]); // Lo que está entre corchetes son los parámetros que paso y pueden utilizarse en el archivo index
     }
     
     public function show($id) {
