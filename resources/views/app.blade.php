@@ -42,7 +42,7 @@
                 <div class="nav__button fas fa-bars"></div>
             </div>
             <div class="nav__a-container">
-                <a href="/tasks" class="nav__a"><i class="fas fa-clock"></i>Tasks</a>
+                <a href="/" class="nav__a"><i class="fas fa-clock"></i>Tasks</a>
                 <a href="/categories" class="nav__a"><i class="fas fa-book"></i>Categories</a>
             </div>
         </nav>

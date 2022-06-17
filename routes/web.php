@@ -35,7 +35,7 @@ Route::get('/resources/{folder}/{filename}', function($folder, $filename){
 });
 
 Route::get('/', function () {
-    return view('app');
+    return redirect('/tasks');
 });
 
 Route::get('/tasks', [TasksController::class, 'index'])->name('tasks');

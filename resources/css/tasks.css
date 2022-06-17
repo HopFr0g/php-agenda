@@ -1,0 +1,81 @@
+.form, .tasks {
+    width: 80%;
+    max-width: 500px;
+    
+    margin: 10px auto;
+    padding: 20px;
+    
+    background-color: var(--light-gray);
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 40px;
+    grid-gap: 12px;
+}
+
+.form__notification {
+    grid-column: 1 / 3;
+}
+
+.form__title {
+    grid-column: 1/2;
+}
+
+.form__category {
+    grid-column: 2/3;
+}
+
+.form__submit {
+    grid-column: 1/3;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.task {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 40px;
+}
+
+.task__name {
+    grid-column: 1/2;
+    
+    text-align: left;
+    text-decoration: none;
+    
+    font-size: 14pt;
+    color: var(--body-text-color);
+}
+
+.task__name:hover {
+    color: var(--white);
+}
+
+.task__delete {
+    grid-column: 2/3;
+    
+    text-align: right;
+}
+
+.empty {
+    text-align: center;
+    
+    font-size: 14pt;
+    
+    color: var(--body-text-color);
+}
+
+.empty a {
+    text-decoration: none;
+    
+    color: var(--blue);
+}
+
+.empty a:hover {
+    color: var(--light-blue);
+}
