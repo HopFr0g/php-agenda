@@ -7,19 +7,14 @@ use App\Models\Category;
 
 class CategoriesController extends Controller
 {
-    public function index()
-    {
+    public function index() {
         $categories = Category::all();
-        return view('categories.index' /* vista */, ['categories' => $categories] /* parámetro que le pasamos */);
+        return view('categories.index', ['categories' => $categories]);
     }
 
-    public function create()
-    {
-        //
-    }
+    public function create() {}
 
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $request->validate([
             'name' => 'required|unique:categories|max:255',
             'color' => 'required|max:7'
@@ -32,20 +27,15 @@ class CategoriesController extends Controller
         return redirect()->route('categories.index')->with('success', 'Nueva categoría agregada');
     }
 
-    public function show($id)
-    {
+    public function show($id) {
         $category = Category::find($id);
         
         return view('categories.show', ['category' => $category]);
     }
 
-    public function edit($id)
-    {
-        //
-    }
+    public function edit($id) {}
 
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $category = Category::find($id);
         $category->name = $category->name;
         $category->color = $category->color;
@@ -54,13 +44,13 @@ class CategoriesController extends Controller
         return redirect()->route('categories.index')->with('success', 'Categoría actualizada');
     }
 
-    public function destroy($id)
-    {
-        // nota: este es un ejemplo de cómo eliminar una entrada de una tabla, de la que dependen otras entradas de otra tabla (clave foránea)
+    public function destroy($id) {
         $category = Category::find($id);
+        
         $category->tasks()->each(function($task) {
             $task->delete();
         });
+        
         $category->delete();
         
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully');   

@@ -23,7 +23,7 @@ class TasksController extends Controller
     public function index() {
         $tasks = Task::all();
         $categories = Category::all();
-        return view('tasks.index', ['tasks' => $tasks, 'categories' => $categories]); // Lo que está entre corchetes son los parámetros que paso y pueden utilizarse en el archivo index
+        return view('tasks.index', ['tasks' => $tasks, 'categories' => $categories]);
     }
     
     public function show($id) {
@@ -36,7 +36,6 @@ class TasksController extends Controller
         $task->title = $request->title;
         $task->save();
         
-        // return view('tasks.index', ['success' => 'Tarea actualizada']);
         return redirect()->route('tasks')->with('success', 'Task updated successfully');
     }
     
