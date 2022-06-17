@@ -15,6 +15,25 @@ use App\Http\Controllers\CategoriesController;
 |
 */
 
+Route::get('/resources/{folder}/{filename}', function($folder, $filename){
+    $path = resource_path() . '/' . $folder . '/' . $filename;
+
+    if(!File::exists($path)) {
+        return response()->json(['message' => 'Not found.'], 404);
+    }
+
+    $file = File::get($path);
+
+    $response = Response::make($file, 200);
+    
+    if ($folder == "css")
+        $response->header("Content-Type", "text/css");
+    if ($folder == "js")
+        $response->header("Content-Type", "application/javascript");
+    
+    return $response;
+});
+
 Route::get('/', function () {
     return view('app');
 });

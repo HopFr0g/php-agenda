@@ -1,8 +1,14 @@
 @extends('app')
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="/resources/css/tasks.css">
+@endsection
+
+@section('js')
+    <script src="/resources/js/tasks.js"></script>
+@endsection
+
 @section('content')
-    <h2 style="color: red">Hola mundo</h2>
-    
     <form action="{{ route('tasks') }}" method="POST">
         @csrf
         

@@ -1,4 +1,12 @@
-@extends('app');
+@extends('app')
+
+@section('css')
+    <link rel="stylesheet" type="text/css" href="/resources/css/categories.css">
+@endsection
+
+@section('js')
+    <script src="/resources/js/categories.js"></script>
+@endsection
 
 @section('content')
     <div>
